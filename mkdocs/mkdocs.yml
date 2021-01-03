@@ -1,0 +1,5 @@
+site_name: My Docs
+nav:
+    - Home: index.md
+    - Spring Boot: spring-boot.md
+theme: material
