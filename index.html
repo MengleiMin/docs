@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git-commands" class="md-skip">
+        <a href="#welcome-to-my-docs" class="md-skip">
           Skip to content
         </a>
       
@@ -174,44 +174,12 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Home
-        <span class="md-nav__icon md-icon"></span>
-      </label>
     
     <a href="." class="md-nav__link md-nav__link--active">
       Home
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#git-commands" class="md-nav__link">
-    Git commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-short-command" class="md-nav__link">
-    Git short command
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -242,6 +210,48 @@
   </li>
 
     
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+    
+    <label class="md-nav__link" for="nav-4">
+      Tools
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Tools" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Tools
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="intellij/" class="md-nav__link">
+      Intellij
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -257,28 +267,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#git-commands" class="md-nav__link">
-    Git commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-short-command" class="md-nav__link">
-    Git short command
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -291,107 +281,7 @@
               
                 
                 
-                  <h1>Home</h1>
-                
-                <h3 id="git-commands"><em>Git commands</em></h3>
-<ul>
-<li>When want to change the commit, use <code>amend</code> command.<br />
-<code>git status</code>  <br />
-<code>git add .</code> <br />
-<code>git commit --amend -m "Your comment"</code><br />
-<code>git push origin HEAD -f</code> </li>
-</ul>
-<!-- more -->
-
-<ul>
-<li>
-<p>When want to squach last N commits, use <strong>squash</strong> command.<br />
-<code>git rebase -i HEAD~N</code>  <br />
-Choose the commits that you want to squach, and put squash command at the beginning of the commits. For example, the last 4 commits below will be squashed into first commit <strong>01d1124</strong>.</p>
-<p><code>pick   01d1124 commit 1.    
-squash 6340aaa commit 2.
-squash ebfd367 commit 3.
-squash 30e0ccb commit 4.</code> </p>
-<p>Once this is done and saved, another editor pops up, you can also edit the commit message there if you want to. <br />
-Save and exit, use the following command to push the squached commit.<br />
-<code>git push origin HEAD -f</code> </p>
-</li>
-<li>
-<p>Jump back to the last commit using a <code>commit-id</code> and push it to the remote branch. <br />
-<code>git reset --hard f145f6f</code><br />
-<code>git push origin -f</code> </p>
-</li>
-<li>
-<p>Undo the last commit<br />
-<code>git reset --soft HEAD~1</code><br />
-If you don't want to keep these changes, simply use the <code>--hard</code>flag. Be sure to only do this when you're sure you don't need these changes anymore.<br />
-<code>git reset --hard HEAD~1</code></p>
-</li>
-<li>
-<p>Remove the merge just now<br />
-<code>git fetch origin</code><br />
-<code>git reset --hard origin</code></p>
-</li>
-<li>
-<p>git reverte<br />
-<code>git checkout master</code><br />
-<code>git pull --rebase origin master</code>
-<code>git checkout -b revert_pull_request_1</code>
-<code>git revert -m 1 merged-commit-id</code>
-<code>git push origin revert_pull_request_1</code></p>
-</li>
-<li>
-<p>Create branch <br />
-<code>git pull</code><br />
-<code>git checkout -branch branchName</code><br />
-<code>git push origin branchName</code>  </p>
-</li>
-<li>
-<p>Delete branch from local and remote <br />
-<code>git branch -delete branchName</code><br />
-<code>git push origin --delete branchName</code></p>
-</li>
-<li>
-<p>Resolve Conflicts<br />
-<strong>Step 1</strong>. Checkout the source branch and merge in the changes from the target branch.<br />
-<code>git merge --abort</code>  (If exist uncommited files) <br />
-<code>git checkout feature/branchName</code> <br />
-<code>git pull origin master</code><br />
-<strong>Step 2</strong>. After the merge conflicts are resolved, stage the changes accordingly, commit the changes and push.<br />
-<code>git commit</code><br />
-<code>git push origin HEAD</code>   </p>
-</li>
-<li>
-<p>Rename remote branch<br />
-<strong>Step 1a</strong>. Rename your local branch.
-If you are on the branch you want to rename:
-<code>git branch -m new-name</code><br />
-<strong>Step 1b</strong>. If you are on a different branch:
-<code>git branch -m old-name new-name</code>  <br />
-<strong>Step 2</strong>. Delete the old-name remote branch and push the new-name local branch.
-<code>git push origin :old-name new-name</code><br />
-<strong>Step 3</strong>. Reset the upstream branch for the new-name local branch.
-<code>git push origin -u new-name</code></p>
-</li>
-<li>
-<p>Remove the last commit<br />
-<code>git reset --hard HEAD^</code><br />
-<code>git push origin -f</code>  </p>
-</li>
-</ul>
-<hr />
-<h3 id="git-short-command"><strong>Git short command</strong></h3>
-<ul>
-<li>
-<p>Show commit history <br />
-<code>git reflog</code></p>
-</li>
-<li>
-<p>Show graphical history viewer <br />
-<code>gitk</code></p>
-</li>
-</ul>
-<hr />
+                <h1 id="welcome-to-my-docs">Welcome to my docs</h1>
                 
               
               
