@@ -1,74 +1,61 @@
-
-## *Sets*
-* Implement containsAny for sets command.  
-  - `Sets.intersection(set1, set2).isEmpty()`   
-  - `CollectionUtils.containsAny(someCollection1, someCollection2)`
-  - `setA.stream().anyMatch(setB::contains)`
-
-<!-- more -->
- 
- ## *Optional*
-- `!getData(input).isPresent()` 
-- `getData(input).isEmpty()` 
+## Optional  
+-  `getData(input).isPresent()`   
+-  `getData(input).isEmpty()` 
 
 - 
-    ``` 
-  /* When result is null, return 0L */
+    /* Return non-negative value, and when result is null, return 0L */
 
-  private long getA(Optional<QueryResponse> response) {
-        return response
-                .map(r -> r.b)
-                .map(b -> Math.max(0, b)
-                .orElse(0L);
-  }
-    ```
+        private long getA(Optional<QueryResponse> response) {
+                return response
+                        .map(r -> r.b)
+                        .map(b -> Math.max(0, b)
+                        .orElse(0L);
+        }
+  
 - 
-     ```
-  /* When result is null, return result */
+    /* Return non-negative value, when result is null, return result/null */
 
-  private long getA(Optional<QueryResponse> response) {
-        return response
-                .map(r -> r.b)
-                .map(b -> Math.max(0, b)
-                .get();
-  }
-    ```
+        private long getA(Optional<QueryResponse> response) {
+                return response
+                        .map(r -> r.b)
+                        .map(b -> Math.max(0, b)
+                        .get();
+        }
 
 - 
-    ```  
-    /* Return the result which A.getB() >= b and sort it out as ascending order */
+     /* Return the result which A.getB() >= b and sort it out as ascending order by C */
 
-    private long getC(Object A) {
-        return A.stream()
-            .filter(A -> A.getB() >= b)
-            .max(Comparator.comparing(A::getC()))
-            .map(A::getC())
-            .orElse(0L);
-    }
-    ```
+        private long getC(Object A) {
+            return A.stream()
+                    .filter(A -> A.getB() >= b)
+                    .max(Comparator.comparing(A::getC()))
+                    .map(A::getC())
+                    .orElse(0L);
 
 - 
-    ```
-     Boolean/boolean result = 
-        (response) -> Optional.ofNullable(response)
-            .map(r -> r.b)
-            .map(b -> b.c)
-            .isPresent())
-    ```
+    Boolean/boolean result = (response) -> Optional.ofNullable(response)
+                             .map(r -> r.b)
+                             .map(b -> b.c)
+                             .isPresent())
 
 - 
-    ```
     /* When several functions have common parts, can extract the common method (parseValueFromA) for them */
 
-    private Long parseValueFromA(Optional<QueryResponse> response,Function<QueryResponse, Long> function) {
-        return response
-            .map(function)
-            .orElse(null);
-    }
+        private Long parseValueFromA(Optional<QueryResponse> response,Function<QueryResponse, Long> function) {
+            return response
+                .map(function)
+                .orElse(null);
+        }
 
-    Long B = parseValueFromA(response, QueryResponse -> QueryResponse.B);
-    Long C = parseValueFromA(response, QueryResponse -> QueryResponse.C);
-    ```
+        Long B = parseValueFromA(response, QueryResponse -> QueryResponse.B);
+        Long C = parseValueFromA(response, QueryResponse -> QueryResponse.C);
+
+
+## Sets
+1. Implement `containsAny` for sets command.  
+     - `Sets.intersection(set1, set2).isEmpty()`   
+     - `CollectionUtils.containsAny(someCollection1, someCollection2)`
+     - `setA.stream().anyMatch(setB::contains)`
 
 
 ---
