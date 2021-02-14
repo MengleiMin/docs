@@ -1,5 +1,14 @@
 site_name: My Docs
 nav:
-    - Home: git.md
+    - Home: index.md
+    - Git: git.md
     - Spring Boot: spring-boot.md
+    - Java: java.md
+    - Tools:
+        - Intellij: intellij.md
+        - Markdown: markdown.md
+    - Other:
+        - English: english.md
+        - Swedish: swedish.md
+
 theme: material
