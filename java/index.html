@@ -14,7 +14,7 @@
     
     
       
-        <title>Intellij - My Docs</title>
+        <title>Java - My Docs</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#intellij-shoutcuts" class="md-skip">
+        <a href="#sets" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +90,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Intellij
+              Java
             
           </span>
         </div>
@@ -206,11 +206,59 @@
       
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../java/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Java
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Java
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sets" class="md-nav__link">
+    Sets
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-fetching-handling" class="md-nav__link">
+    Data fetching handling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -219,14 +267,12 @@
       
 
 
-  
-
 
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
     
     <label class="md-nav__link" for="nav-5">
       Tools
@@ -245,52 +291,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Intellij
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../intellij/" class="md-nav__link">
       Intellij
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#intellij-shoutcuts" class="md-nav__link">
-    Intellij shoutcuts
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sublime-shoutcuts" class="md-nav__link">
-    Sublime shoutcuts
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -390,15 +395,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#intellij-shoutcuts" class="md-nav__link">
-    Intellij shoutcuts
+  <a href="#sets" class="md-nav__link">
+    Sets
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sublime-shoutcuts" class="md-nav__link">
-    Sublime shoutcuts
+  <a href="#data-fetching-handling" class="md-nav__link">
+    Data fetching handling
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
   </a>
   
 </li>
@@ -416,44 +428,193 @@
               
                 
                 
-                  <h1>Intellij</h1>
+                  <h1>Java</h1>
                 
-                <h3 id="intellij-shoutcuts"><em>Intellij shoutcuts</em></h3>
+                <h2 id="sets"><em>Sets</em></h2>
 <ul>
-<li><strong>Choose a block selection</strong> <br />
-<code>shift+cmd+8</code></li>
+<li>Implement containsAny for sets command.  </li>
+<li><code>Sets.intersection(set1, set2).isEmpty()</code>   </li>
+<li><code>CollectionUtils.containsAny(someCollection1, someCollection2)</code></li>
+<li><code>setA.stream().anyMatch(setB::contains)</code></li>
 </ul>
 <!-- more -->
 
+<p>## <em>Optional</em>
+- <code>!getData(input).isPresent()</code> 
+- <code>getData(input).isEmpty()</code> </p>
 <ul>
 <li>
-<p><strong>Create Test</strong><br />
-<code>cmd+shift+T</code></p>
-</li>
-<li>
-<p><strong>Find in path</strong><br />
-<code>cmd+shift+f</code></p>
-</li>
-<li>
-<p><strong>Find action dialog</strong><br />
-<code>cmd+shift+A</code><br />
-Actions: <br />
-Extract method<br />
-Hierarchy actions</p>
-</li>
-<li>
-<p><strong>New scratch file</strong><br />
-<code>cmd+shift+N</code>  </p>
-</li>
-<li>
-<p><strong>Format JSON in a scratch file</strong><br />
-<code>cmd+shift+option+L</code>  </p>
+<p>``` 
+  /<em> When result is null, return 0L </em>/</p>
 </li>
 </ul>
-<h3 id="sublime-shoutcuts"><em>Sublime shoutcuts</em></h3>
+<p>private long getA(Optional<QueryResponse> response) {
+        return response
+                .map(r -&gt; r.b)
+                .map(b -&gt; Math.max(0, b)
+                .orElse(0L);
+  }
+    <code>-</code>
+  /<em> When result is null, return result </em>/</p>
+<p>private long getA(Optional<QueryResponse> response) {
+        return response
+                .map(r -&gt; r.b)
+                .map(b -&gt; Math.max(0, b)
+                .get();
+  }
+    ```</p>
 <ul>
-<li><strong>Json in sublime</strong><br />
-<code>cmd+control+j</code>  </li>
+<li>
+<p>```<br />
+/<em> Return the result which A.getB() &gt;= b and sort it out as ascending order </em>/</p>
+<p>private long getC(Object A) {
+    return A.stream()
+        .filter(A -&gt; A.getB() &gt;= b)
+        .max(Comparator.comparing(A::getC()))
+        .map(A::getC())
+        .orElse(0L);
+}
+```</p>
+</li>
+<li>
+<pre><code>```
+ Boolean/boolean result = 
+    (response) -&gt; Optional.ofNullable(response)
+        .map(r -&gt; r.b)
+        .map(b -&gt; b.c)
+        .isPresent())
+```
+</code></pre>
+</li>
+<li>
+<pre><code>```
+/* When several functions have common parts, can extract the common method (parseValueFromA) for them */
+</code></pre>
+<p>private Long parseValueFromA(Optional<QueryResponse> response,Function<QueryResponse, Long> function) {
+    return response
+        .map(function)
+        .orElse(null);
+}</p>
+<p>Long B = parseValueFromA(response, QueryResponse -&gt; QueryResponse.B);
+Long C = parseValueFromA(response, QueryResponse -&gt; QueryResponse.C);
+```</p>
+</li>
+</ul>
+<hr />
+<h2 id="data-fetching-handling"><em>Data fetching handling</em></h2>
+<ul>
+<li><strong>Solution 1</strong></li>
+</ul>
+<pre><code> A.getB().getC() 
+</code></pre>
+<ul>
+<li><strong>Solution 2</strong></li>
+</ul>
+<pre><code> Optional.ofNullable(A) 
+    .map(A::getB())
+    .map(B::getC())
+    .orElseThrow(() -&gt; new RuntimeException(&quot;C is not present!&quot;));
+</code></pre>
+<hr />
+<h2 id="tips"><em>Tips</em></h2>
+<ul>
+<li>
+<p><strong>if - else</strong> <br />
+        if(x==y) {
+            return a;
+        } else {
+            return b 
+        }<br />
+    can be simpified as:<br />
+        x == y ? a : b </p>
+</li>
+<li>
+<p><strong>if - else if - else</strong> <br />
+    If the conditions are not based on the same thing, for example: <br />
+        if (condition A) {
+            ...
+        }
+        if (condition B) {
+            ...
+        }<br />
+    If the conditions is based on the same thing, then: <br />
+        if (a &gt; 1) {
+            ...
+        } else if (a == 0) {
+            ...
+        } else {
+            ...
+        }</p>
+</li>
+<li>
+<p><strong>if-else VS switch</strong><br />
+    &gt; For a <strong>switch</strong> statement, the <strong>default</strong> clause is good for error handling and testing (even it is not necessary). If it doesn't need the default clause, then <strong>if - else</strong> can be considered instead.</p>
+</li>
+<li>
+<p><strong>static final VS final static</strong>
+    &gt; static final and final static are the same. However static final is recommended by coding convention.</p>
+</li>
+</ul>
+<hr />
+<p>## <em>Regexp/ restrction annotation</em></p>
+<p>#### Integer
+<code>@Positive</code> and <code>@PositiveOrZero</code><br />
+<code>@Min(100)</code> and  <code>@Max(100)</code><br />
+<code>@Range(min = 1000, max = 3000)</code></p>
+<p>#### String
+ <code>@NotEmpty</code> // <em>String is not empty</em><br />
+<code>@NotNull</code> // <em>String is not Null</em><br />
+<code>@Size(max = 100)</code>  // <em>length of String</em><br />
+<code>@Pattern(regexp = "(^[1-9]$)|(^0[1-9]|1[0-2]$)")</code>  // <em>1 - 12, include 01, 02</em>
+ <code>@Pattern(regexp = "^\d{4}$")</code> // <em>Four digits</em><br />
+<code>@Pattern(regexp = "[A-Z]{3}")</code> // <em>The three character ISO 4217 currency code</em></p>
+<p>#### LocalDate
+ <code>@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")</code></p>
+<p>## <em>Annotations</em></p>
+<p><code>@Data</code><br />
+<code>@EqualsAndHashCode(callSuper = true)</code> // @EqualsAndHashCode is included in @Data, and the default value of callSuper is false.</p>
+<p><code>@AvroIgnore</code></p>
+<p>## <em>Functions</em>
+ - <code>Boolean.equals(Object obj)</code></p>
+<blockquote>
+<p>Returns true if and only if the argument <strong>is not null</strong> and is a Boolean object that represents the same boolean value as this object.</p>
+</blockquote>
+<ul>
+<li>
+<p><code>Objects.isNull(Object A)</code>  </p>
+<blockquote>
+<p>This method is used to check if object is null or not, it doesn't check empty.</p>
+</blockquote>
+</li>
+<li>
+<p><code>ObjectUtils.allNotNull(Object A, Object B,....)</code></p>
+<blockquote>
+<p>This method is used to check if all object are not null, it doesn't check empty. </p>
+</blockquote>
+</li>
+<li>
+<p><code>StringUtils.isEmpty()</code></p>
+<blockquote>
+<p>This method is used to check if a String object is null or <strong>empty</strong>. </p>
+</blockquote>
+</li>
+<li>
+<p><code>org.springframework.util.CollectionUtils.isEmpty(Object A)</code>    </p>
+<blockquote>
+<p>This method is used to check if a object is null or <strong>empty</strong>.
+  &nbsp;</p>
+</blockquote>
+</li>
+<li>
+<p><code>LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))</code></p>
+<blockquote>
+<p>To format the date.</p>
+</blockquote>
+</li>
+<li><code>Long.MAX_VALUE</code><blockquote>
+<p>Get the maximum value of Long.</p>
+</blockquote>
+</li>
 </ul>
                 
               
@@ -473,7 +634,7 @@ Hierarchy actions</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../java/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../spring-boot/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -482,19 +643,19 @@ Hierarchy actions</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Java
+                Spring Boot
               </div>
             </div>
           </a>
         
         
-          <a href="../markdown/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../intellij/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Markdown
+                Intellij
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
