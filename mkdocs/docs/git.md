@@ -12,10 +12,10 @@
 Choose the commits that you want to squach, and put squash command at the beginning of the commits. For example, the last 4 commits below will be squashed into first commit **01d1124**.
 
     ```
-    pick   01d1124 commit 1.    
-    squash 6340aaa commit 2.
-    squash ebfd367 commit 3.
-    squash 30e0ccb commit 4.
+    pick/reword   01d1124 commit 1.    
+    fixme 6340aaa commit 2.
+    fixme ebfd367 commit 3.
+    fixme 30e0ccb commit 4.
     ``` 
   
     Once this is done and saved, another editor pops up, you can also edit the commit message there if you want to.   
