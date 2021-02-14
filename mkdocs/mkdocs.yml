@@ -1,5 +1,5 @@
 site_name: My Docs
 nav:
-    - Home: index.md
+    - Home: git.md
     - Spring Boot: spring-boot.md
 theme: material
