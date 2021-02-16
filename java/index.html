@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sets" class="md-skip">
+        <a href="#optional" class="md-skip">
           Skip to content
         </a>
       
@@ -222,6 +222,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#optional" class="md-nav__link">
+    Optional
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sets" class="md-nav__link">
     Sets
   </a>
@@ -382,6 +389,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#optional" class="md-nav__link">
+    Optional
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sets" class="md-nav__link">
     Sets
   </a>
@@ -417,76 +431,75 @@
                 
                   <h1>Java</h1>
                 
-                <h2 id="sets"><em>Sets</em></h2>
+                <h2 id="optional">Optional</h2>
 <ul>
-<li>Implement containsAny for sets command.  </li>
-<li><code>Sets.intersection(set1, set2).isEmpty()</code>   </li>
-<li><code>CollectionUtils.containsAny(someCollection1, someCollection2)</code></li>
-<li><code>setA.stream().anyMatch(setB::contains)</code></li>
-</ul>
-<!-- more -->
-
-<p>## <em>Optional</em>
-- <code>!getData(input).isPresent()</code> 
-- <code>getData(input).isEmpty()</code> </p>
-<ul>
+<li><code>getData(input).isPresent()</code>   </li>
 <li>
-<p>``` 
-  /<em> When result is null, return 0L </em>/</p>
+<p><code>getData(input).isEmpty()</code> </p>
 </li>
-</ul>
-<p>private long getA(Optional<QueryResponse> response) {
+<li>
+<pre><code>/* Return non-negative value, and when result is null, return 0L */
+
+private long getA(Optional&lt;QueryResponse&gt; response) {
         return response
                 .map(r -&gt; r.b)
                 .map(b -&gt; Math.max(0, b)
                 .orElse(0L);
-  }
-    <code>-</code>
-  /<em> When result is null, return result </em>/</p>
-<p>private long getA(Optional<QueryResponse> response) {
+}
+</code></pre>
+</li>
+<li>
+<pre><code>/* Return non-negative value, when result is null, return result/null */
+
+private long getA(Optional&lt;QueryResponse&gt; response) {
         return response
                 .map(r -&gt; r.b)
                 .map(b -&gt; Math.max(0, b)
                 .get();
-  }
-    ```</p>
-<ul>
-<li>
-<p>```<br />
-/<em> Return the result which A.getB() &gt;= b and sort it out as ascending order </em>/</p>
-<p>private long getC(Object A) {
-    return A.stream()
-        .filter(A -&gt; A.getB() &gt;= b)
-        .max(Comparator.comparing(A::getC()))
-        .map(A::getC())
-        .orElse(0L);
 }
-```</p>
-</li>
-<li>
-<pre><code>```
- Boolean/boolean result = 
-    (response) -&gt; Optional.ofNullable(response)
-        .map(r -&gt; r.b)
-        .map(b -&gt; b.c)
-        .isPresent())
-```
 </code></pre>
 </li>
 <li>
-<pre><code>```
-/* When several functions have common parts, can extract the common method (parseValueFromA) for them */
+<pre><code> /* Return the result which A.getB() &gt;= b and sort it out as ascending order by C */
+
+private long getC(Object A) {
+    return A.stream()
+            .filter(A -&gt; A.getB() &gt;= b)
+            .max(Comparator.comparing(A::getC()))
+            .map(A::getC())
+            .orElse(0L);
 </code></pre>
-<p>private Long parseValueFromA(Optional<QueryResponse> response,Function<QueryResponse, Long> function) {
+</li>
+<li>
+<pre><code>Boolean/boolean result = (response) -&gt; Optional.ofNullable(response)
+                         .map(r -&gt; r.b)
+                         .map(b -&gt; b.c)
+                         .isPresent())
+</code></pre>
+</li>
+<li>
+<pre><code>/* When several functions have common parts, can extract the common method (parseValueFromA) for them */
+
+private Long parseValueFromA(Optional&lt;QueryResponse&gt; response,Function&lt;QueryResponse, Long&gt; function) {
     return response
         .map(function)
         .orElse(null);
-}</p>
-<p>Long B = parseValueFromA(response, QueryResponse -&gt; QueryResponse.B);
+}
+
+Long B = parseValueFromA(response, QueryResponse -&gt; QueryResponse.B);
 Long C = parseValueFromA(response, QueryResponse -&gt; QueryResponse.C);
-```</p>
+</code></pre>
 </li>
 </ul>
+<h2 id="sets">Sets</h2>
+<ol>
+<li>Implement <code>containsAny</code> for sets command.  <ul>
+<li><code>Sets.intersection(set1, set2).isEmpty()</code>   </li>
+<li><code>CollectionUtils.containsAny(someCollection1, someCollection2)</code></li>
+<li><code>setA.stream().anyMatch(setB::contains)</code></li>
+</ul>
+</li>
+</ol>
 <hr />
 <h2 id="data-fetching-handling"><em>Data fetching handling</em></h2>
 <ul>
