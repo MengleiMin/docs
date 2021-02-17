@@ -243,6 +243,54 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#regexp-restrction-annotation" class="md-nav__link">
+    Regexp/ restrction annotation
+  </a>
+  
+    <nav class="md-nav" aria-label="Regexp/ restrction annotation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integer" class="md-nav__link">
+    Integer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localdate" class="md-nav__link">
+    LocalDate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotations" class="md-nav__link">
+    Annotations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tips" class="md-nav__link">
     Tips
   </a>
@@ -410,6 +458,54 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#regexp-restrction-annotation" class="md-nav__link">
+    Regexp/ restrction annotation
+  </a>
+  
+    <nav class="md-nav" aria-label="Regexp/ restrction annotation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integer" class="md-nav__link">
+    Integer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localdate" class="md-nav__link">
+    LocalDate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#annotations" class="md-nav__link">
+    Annotations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tips" class="md-nav__link">
     Tips
   </a>
@@ -491,6 +587,7 @@ Long C = parseValueFromA(response, QueryResponse -&gt; QueryResponse.C);
 </code></pre>
 </li>
 </ul>
+<hr />
 <h2 id="sets">Sets</h2>
 <ol>
 <li>Implement <code>containsAny</code> for sets command.  <ul>
@@ -501,7 +598,7 @@ Long C = parseValueFromA(response, QueryResponse -&gt; QueryResponse.C);
 </li>
 </ol>
 <hr />
-<h2 id="data-fetching-handling"><em>Data fetching handling</em></h2>
+<h2 id="data-fetching-handling">Data fetching handling</h2>
 <ul>
 <li><strong>Solution 1</strong></li>
 </ul>
@@ -516,70 +613,34 @@ Long C = parseValueFromA(response, QueryResponse -&gt; QueryResponse.C);
     .orElseThrow(() -&gt; new RuntimeException(&quot;C is not present!&quot;));
 </code></pre>
 <hr />
-<h2 id="tips"><em>Tips</em></h2>
-<ul>
-<li>
-<p><strong>if - else</strong> <br />
-        if(x==y) {
-            return a;
-        } else {
-            return b 
-        }<br />
-    can be simpified as:<br />
-        x == y ? a : b </p>
-</li>
-<li>
-<p><strong>if - else if - else</strong> <br />
-    If the conditions are not based on the same thing, for example: <br />
-        if (condition A) {
-            ...
-        }
-        if (condition B) {
-            ...
-        }<br />
-    If the conditions is based on the same thing, then: <br />
-        if (a &gt; 1) {
-            ...
-        } else if (a == 0) {
-            ...
-        } else {
-            ...
-        }</p>
-</li>
-<li>
-<p><strong>if-else VS switch</strong><br />
-    &gt; For a <strong>switch</strong> statement, the <strong>default</strong> clause is good for error handling and testing (even it is not necessary). If it doesn't need the default clause, then <strong>if - else</strong> can be considered instead.</p>
-</li>
-<li>
-<p><strong>static final VS final static</strong>
-    &gt; static final and final static are the same. However static final is recommended by coding convention.</p>
-</li>
-</ul>
-<hr />
-<p>## <em>Regexp/ restrction annotation</em></p>
-<p>#### Integer
-<code>@Positive</code> and <code>@PositiveOrZero</code><br />
+<h2 id="regexp-restrction-annotation">Regexp/ restrction annotation</h2>
+<h3 id="integer">Integer</h3>
+<p><code>@Positive</code> and <code>@PositiveOrZero</code><br />
 <code>@Min(100)</code> and  <code>@Max(100)</code><br />
 <code>@Range(min = 1000, max = 3000)</code></p>
-<p>#### String
- <code>@NotEmpty</code> // <em>String is not empty</em><br />
+<h3 id="string">String</h3>
+<p><code>@NotEmpty</code> // <em>String is not empty</em><br />
 <code>@NotNull</code> // <em>String is not Null</em><br />
 <code>@Size(max = 100)</code>  // <em>length of String</em><br />
 <code>@Pattern(regexp = "(^[1-9]$)|(^0[1-9]|1[0-2]$)")</code>  // <em>1 - 12, include 01, 02</em>
- <code>@Pattern(regexp = "^\d{4}$")</code> // <em>Four digits</em><br />
+<code>@Pattern(regexp = "^\d{4}$")</code> // <em>Four digits</em><br />
 <code>@Pattern(regexp = "[A-Z]{3}")</code> // <em>The three character ISO 4217 currency code</em></p>
-<p>#### LocalDate
- <code>@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")</code></p>
-<p>## <em>Annotations</em></p>
+<h3 id="localdate">LocalDate</h3>
+<p><code>@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")</code></p>
+<hr />
+<h2 id="annotations">Annotations</h2>
 <p><code>@Data</code><br />
 <code>@EqualsAndHashCode(callSuper = true)</code> // @EqualsAndHashCode is included in @Data, and the default value of callSuper is false.</p>
 <p><code>@AvroIgnore</code></p>
-<p>## <em>Functions</em>
- - <code>Boolean.equals(Object obj)</code></p>
+<hr />
+<h2 id="functions">Functions</h2>
+<ul>
+<li>
+<p><code>Boolean.equals(Object obj)</code></p>
 <blockquote>
 <p>Returns true if and only if the argument <strong>is not null</strong> and is a Boolean object that represents the same boolean value as this object.</p>
 </blockquote>
-<ul>
+</li>
 <li>
 <p><code>Objects.isNull(Object A)</code>  </p>
 <blockquote>
@@ -601,8 +662,7 @@ Long C = parseValueFromA(response, QueryResponse -&gt; QueryResponse.C);
 <li>
 <p><code>org.springframework.util.CollectionUtils.isEmpty(Object A)</code>    </p>
 <blockquote>
-<p>This method is used to check if a object is null or <strong>empty</strong>.
-  &nbsp;</p>
+<p>This method is used to check if a object is null or <strong>empty</strong>.</p>
 </blockquote>
 </li>
 <li>
@@ -611,8 +671,57 @@ Long C = parseValueFromA(response, QueryResponse -&gt; QueryResponse.C);
 <p>To format the date.</p>
 </blockquote>
 </li>
-<li><code>Long.MAX_VALUE</code><blockquote>
+<li>
+<p><code>Long.MAX_VALUE</code></p>
+<blockquote>
 <p>Get the maximum value of Long.</p>
+</blockquote>
+</li>
+</ul>
+<hr />
+<h2 id="tips">Tips</h2>
+<ul>
+<li><strong>if - else</strong>   </li>
+</ul>
+<pre><code>if(x==y) {
+    return a;
+} else {
+    return b 
+}  
+</code></pre>
+<p>can be simpified as:<br />
+<code>x == y ? a : b</code> </p>
+<ul>
+<li><strong>if - else if - else</strong>  </li>
+</ul>
+<pre><code>If the conditions are not based on the same thing, for example:  
+if (condition A) {
+    ...
+}
+if (condition B) {
+    ...
+} 
+</code></pre>
+<pre><code>If the conditions is based on the same thing, then:  
+if (a &gt; 1) {
+    ...
+} else if (a == 0) {
+    ...
+} else {
+    ...
+}
+</code></pre>
+<ul>
+<li>
+<p><strong>if-else VS switch</strong>  </p>
+<blockquote>
+<p>For a <strong>switch</strong> statement, the <strong>default</strong> clause is good for error handling and testing (even it is not necessary). If it doesn't need the default clause, then <strong>if - else</strong> can be considered instead.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>static final VS final static</strong></p>
+<blockquote>
+<p>static final and final static are the same. However static final is recommended by coding convention.</p>
 </blockquote>
 </li>
 </ul>
