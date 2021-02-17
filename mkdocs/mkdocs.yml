@@ -1,5 +1,6 @@
 site_name: Molly's notes
 nav:
+    - Home: index.md
     - Git: git.md
     - Spring Boot: spring-boot.md
     - Java: java.md
@@ -9,5 +10,4 @@ nav:
     - Other:
         - English: english.md
         - Swedish: swedish.md
-
 theme: material
