@@ -123,8 +123,46 @@
 > Get the maximum value of Long.
 
 ---
+## Concepts
+### final 
+> A final variable can only be initialized once, it always contains the same value. If a final variable holds a reference to an object, then the state of the object may be changed by operations on the object, but the variable will always refer to the same object.
+
+-  
+        // A final class cannot be subclassed.
+
+        public final class MyFinalClass {...}
+        public class ThisIsWrong extends MyFinalClass {...} // forbidden
+
+- 
+    // A final method cannot be overridden or hidden by subclasses
+
+        public class Base
+        {
+            public       void m1() {...}
+            public final void m2() {...}
+
+            public static       void m3() {...}
+            public static final void m4() {...}
+        }
+
+        public class Derived extends Base
+        {
+            public void m1() {...}  // OK, overriding Base#m1()
+            public void m2() {...}  // forbidden
+
+            public static void m3() {...}  // OK, hiding Base#m3()
+            public static void m4() {...}  // forbidden
+        }
+
+---
 ## Tips
-- **if - else**   
+
+### ObjectMapper
+> Constructing an ObjectMapper instance is a relatively expensive operation, so it's recommended to create one object and reuse it like below. 
+
+`private static final ObjectMapper jsonMapper = new ObjectMapper()`
+
+### if - else   
 ``` 
 if(x==y) {
     return a;
@@ -136,7 +174,7 @@ can be simpified as:
 `x == y ? a : b` 
 
 
-- **if - else if - else**  
+### if - else if - else
   
 ```  
 If the conditions are not based on the same thing, for example:  
@@ -159,9 +197,11 @@ if (a > 1) {
 }
 ``` 
 
-- **if-else VS switch**  
+### if-else VS switch 
 > For a **switch** statement, the **default** clause is good for error handling and testing (even it is not necessary). If it doesn't need the default clause, then **if - else** can be considered instead.
 
+### static final VS final static
+> `static final` and `final static` are the same. However `static final` is recommended by coding convention.
 
-- **static final VS final static**
-> static final and final static are the same. However static final is recommended by coding convention.
+
+

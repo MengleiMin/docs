@@ -1,4 +1,4 @@
-# Welcome to Molly's note
+## Welcome to Molly's note
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
