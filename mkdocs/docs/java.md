@@ -52,27 +52,100 @@
 
 
 ---
-## Sets
-1. Implement `containsAny` for sets command.  
+## Sets / List
+- Implement `containsAny` for sets command.  
      - `Sets.intersection(set1, set2).isEmpty()`   
      - `CollectionUtils.containsAny(someCollection1, someCollection2)`
      - `setA.stream().anyMatch(setB::contains)`
 
 
+- To a set  
+
+        Set<String> orderedItems = orderedItemsSet.stream()
+            .map(str -> str.replaceAll("\\s",""))
+            .map(String::toLowerCase)
+            .collect(Collectors.toSet())
+
+- Return empty list/value
+
+    - return empty list     
+
+            var orderLines = Optional.ofNullable(request.getStudents())
+                    .map(Students::getStudents)
+                    .orElse(Collections.emptyList())
+
+    - Return empty value
+  
+            var student = Optional.ofNullable(request.getStudent()).orElse(null)
+
+
+---
+## Validator
+
+- Validate configuration of YAML file   
+  
+        xxxx-config :
+        settings :
+            normal :
+            - level1: 175_00
+                reward: 510
+            - level2: 350_00
+                reward: 530
+            high :
+            - level1: 175_00
+                reward: 550
+            - level2: 350_00
+                reward: 580
+        userMppingList :
+            DEFAULT   : normal  #Default is mandatory to be set
+            USER12345 : high    
+        ========================================================================= 
+        @Override
+        public boolean supports(@NotNull Class<?> clazz) {
+            return XxxxConfiguration.class.isAssignableFrom(clazz);
+        }  
+        @Override
+        public void validate(@NotNull Object target, @NotNull Errors errors) {
+            XxxxConfiguration config = (XxxxConfiguration) target;
+            if (isNull(config.getSettings())) {
+                errors.rejectValue("settings", "settings", "Setting is null");
+            } else if (getUserMppingList() == null) {
+                errors.rejectValue("userMppingList", "userMppingList", "userMppingList is null");
+            } else if (!config.getSetting().containsKey(getUserMppingList().get(DEFAULT))) {
+                errors.rejectValue("settings", "settings", "Default setting not defined");
+            }
+        }
+
+- Assert 
+> Java also provides a second syntax for assertions that takes a string, which will be used to construct the AssertionError if one is thrown:  
+
+        public void setup() {
+            Connection conn = getConnection();
+            // or assert conn != null;
+            assert conn != null : "Connection is null";
+        }
+
+___
+## Exceptions
+
+- message throw check
+  
+        def ex = thrown(IllegalArgumentException)
+        ex.message == "(java.lang.IllegalArgumentException: XXX)
+
 ---
 ## Data fetching handling
-- **Solution 1**
-```  
- A.getB().getC() 
-```
+- Solution 1
+  
+    `A.getB().getC()` 
 
-- **Solution 2**
-``` 
- Optional.ofNullable(A) 
-    .map(A::getB())
-    .map(B::getC())
-    .orElseThrow(() -> new RuntimeException("C is not present!"));
-```
+- Solution 2
+
+        Optional.ofNullable(A) 
+            .map(A::getB())
+            .map(B::getC())
+            .orElseThrow(() -> new RuntimeException("C is not present!"));
+
 ---
 ## Regexp/ restrction annotation
 
@@ -154,6 +227,22 @@
             public static void m4() {...}  // forbidden
         }
 
+### static
+> In the Java programming language, the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type.  
+This means that only one instance of that static member is created which is shared across all instances of the class.  
+It doesn't matter how many times we initialize a class; there will always be only one copy of static field belonging to it. The value of this static field will be shared across all object of either same of any different class.
+
+### Race condition
+> A race condition occurs when two or more threads can access shared data and they try to change it at the same time. Because the thread scheduling algorithm can swap between threads at any time, you don't know the order in which the threads will attempt to access the shared data. Therefore, the result of the change in data is dependent on the thread scheduling algorithm, i.e. both threads are "racing" to access/change the data.
+
+    if (x == 5) // The "Check"
+    {
+        y = x * 2; // The "Act"
+
+        // If another thread changed x in between "if (x == 5)" and "y = x * 2" above,
+        // y will not be equal to 10.
+    }
+
 ---
 ## Tips
 
@@ -161,6 +250,33 @@
 > Constructing an ObjectMapper instance is a relatively expensive operation, so it's recommended to create one object and reuse it like below. 
 
 `private static final ObjectMapper jsonMapper = new ObjectMapper()`
+
+- Log values as a JSON
+ 
+        log.info(
+            "Log info",
+            value("log_name", log_name),
+            value("log_type", log_type),
+            value("log_variables", jsonMapper.writeValueAsString(localVariable))
+        );
+
+- Two ways to set PropertyNamingStrategy be SNAKE_CASE
+ 
+        spring:
+            jackson:
+                property-naming-strategy: SNAKE_CASE  
+        ==========================================================
+        @Configuration
+        public class JacksonConfiguration {
+
+            @Bean
+            public Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {
+                return new Jackson2ObjectMapperBuilder()
+                        .propertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+                // insert other configurations
+            }
+
+        } 
 
 ### if - else   
 ``` 
@@ -204,4 +320,9 @@ if (a > 1) {
 > `static final` and `final static` are the same. However `static final` is recommended by coding convention.
 
 
+## Other
+
+### Checked / Unchecked assignment
+Checked assignment: `Map<String, Object> factMap = new HashMap<>()`  
+Unchecked assignment: `Map<String, Object> factMap = new HashMap()`
 
