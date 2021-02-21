@@ -242,8 +242,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sets" class="md-nav__link">
-    Sets
+  <a href="#sets-list" class="md-nav__link">
+    Sets / List
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator" class="md-nav__link">
+    Validator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions" class="md-nav__link">
+    Exceptions
   </a>
   
 </li>
@@ -319,6 +333,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#static" class="md-nav__link">
+    static
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#race-condition" class="md-nav__link">
     Race condition
   </a>
@@ -369,6 +390,26 @@
           <li class="md-nav__item">
   <a href="#static-final-vs-final-static" class="md-nav__link">
     static final VS final static
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
+  </a>
+  
+    <nav class="md-nav" aria-label="Other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checked-unchecked-assignment" class="md-nav__link">
+    Checked / Unchecked assignment
   </a>
   
 </li>
@@ -525,8 +566,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sets" class="md-nav__link">
-    Sets
+  <a href="#sets-list" class="md-nav__link">
+    Sets / List
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validator" class="md-nav__link">
+    Validator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions" class="md-nav__link">
+    Exceptions
   </a>
   
 </li>
@@ -602,6 +657,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#static" class="md-nav__link">
+    static
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#race-condition" class="md-nav__link">
     Race condition
   </a>
@@ -652,6 +714,26 @@
           <li class="md-nav__item">
   <a href="#static-final-vs-final-static" class="md-nav__link">
     static final VS final static
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    Other
+  </a>
+  
+    <nav class="md-nav" aria-label="Other">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#checked-unchecked-assignment" class="md-nav__link">
+    Checked / Unchecked assignment
   </a>
   
 </li>
@@ -737,30 +819,117 @@ Long C = parseValueFromA(response, QueryResponse -&gt; QueryResponse.C);
 </li>
 </ul>
 <hr />
-<h2 id="sets">Sets</h2>
-<ol>
-<li>Implement <code>containsAny</code> for sets command.  <ul>
+<h2 id="sets-list">Sets / List</h2>
+<ul>
+<li>
+<p>Implement <code>containsAny</code> for sets command.  </p>
+<ul>
 <li><code>Sets.intersection(set1, set2).isEmpty()</code>   </li>
 <li><code>CollectionUtils.containsAny(someCollection1, someCollection2)</code></li>
 <li><code>setA.stream().anyMatch(setB::contains)</code></li>
 </ul>
 </li>
-</ol>
+<li>
+<p>To a set  </p>
+<pre><code>Set&lt;String&gt; orderedItems = orderedItemsSet.stream()
+    .map(str -&gt; str.replaceAll("\\s",""))
+    .map(String::toLowerCase)
+    .collect(Collectors.toSet())
+</code></pre>
+</li>
+<li>
+<p>Return empty list/value</p>
+<ul>
+<li>
+<p>return empty list     </p>
+<pre><code>var orderLines = Optional.ofNullable(request.getStudents())
+        .map(Students::getStudents)
+        .orElse(Collections.emptyList())
+</code></pre>
+</li>
+<li>
+<p>Return empty value</p>
+<pre><code>var student = Optional.ofNullable(request.getStudent()).orElse(null)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="validator">Validator</h2>
+<ul>
+<li>
+<p>Validate configuration of YAML file   </p>
+<pre><code>xxxx-config :
+settings :
+    normal :
+    - level1: 175_00
+        reward: 510
+    - level2: 350_00
+        reward: 530
+    high :
+    - level1: 175_00
+        reward: 550
+    - level2: 350_00
+        reward: 580
+userMppingList :
+    DEFAULT   : normal  #Default is mandatory to be set
+    USER12345 : high    
+========================================================================= 
+@Override
+public boolean supports(@NotNull Class&lt;?&gt; clazz) {
+    return XxxxConfiguration.class.isAssignableFrom(clazz);
+}  
+@Override
+public void validate(@NotNull Object target, @NotNull Errors errors) {
+    XxxxConfiguration config = (XxxxConfiguration) target;
+    if (isNull(config.getSettings())) {
+        errors.rejectValue("settings", "settings", "Setting is null");
+    } else if (getUserMppingList() == null) {
+        errors.rejectValue("userMppingList", "userMppingList", "userMppingList is null");
+    } else if (!config.getSetting().containsKey(getUserMppingList().get(DEFAULT))) {
+        errors.rejectValue("settings", "settings", "Default setting not defined");
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>Assert </p>
+<blockquote>
+<p>Java also provides a second syntax for assertions that takes a string, which will be used to construct the AssertionError if one is thrown:  </p>
+</blockquote>
+<pre><code>public void setup() {
+    Connection conn = getConnection();
+    // or assert conn != null;
+    assert conn != null : "Connection is null";
+}
+</code></pre>
+</li>
+</ul>
+<hr />
+<h2 id="exceptions">Exceptions</h2>
+<ul>
+<li>message throw check<pre><code>def ex = thrown(IllegalArgumentException)
+ex.message == "(java.lang.IllegalArgumentException: XXX)
+</code></pre>
+</li>
+</ul>
 <hr />
 <h2 id="data-fetching-handling">Data fetching handling</h2>
 <ul>
-<li><strong>Solution 1</strong></li>
-</ul>
-<pre><code> A.getB().getC() 
-</code></pre>
-<ul>
-<li><strong>Solution 2</strong></li>
-</ul>
-<pre><code> Optional.ofNullable(A) 
+<li>
+<p>Solution 1</p>
+<p><code>A.getB().getC()</code> </p>
+</li>
+<li>
+<p>Solution 2</p>
+<pre><code>Optional.ofNullable(A) 
     .map(A::getB())
     .map(B::getC())
-    .orElseThrow(() -&gt; new RuntimeException(&quot;C is not present!&quot;));
+    .orElseThrow(() -&gt; new RuntimeException("C is not present!"));
 </code></pre>
+</li>
+</ul>
 <hr />
 <h2 id="regexp-restrction-annotation">Regexp/ restrction annotation</h2>
 <h3 id="integer">Integer</h3>
@@ -864,7 +1033,24 @@ public class Derived extends Base
 </code></pre>
 </li>
 </ul>
+<h3 id="static">static</h3>
+<blockquote>
+<p>In the Java programming language, the keyword static indicates that the particular member belongs to a type itself, rather than to an instance of that type.<br />
+This means that only one instance of that static member is created which is shared across all instances of the class.<br />
+It doesn't matter how many times we initialize a class; there will always be only one copy of static field belonging to it. The value of this static field will be shared across all object of either same of any different class.</p>
+</blockquote>
 <h3 id="race-condition">Race condition</h3>
+<blockquote>
+<p>A race condition occurs when two or more threads can access shared data and they try to change it at the same time. Because the thread scheduling algorithm can swap between threads at any time, you don't know the order in which the threads will attempt to access the shared data. Therefore, the result of the change in data is dependent on the thread scheduling algorithm, i.e. both threads are "racing" to access/change the data.</p>
+</blockquote>
+<pre><code>if (x == 5) // The "Check"
+{
+    y = x * 2; // The "Act"
+
+    // If another thread changed x in between "if (x == 5)" and "y = x * 2" above,
+    // y will not be equal to 10.
+}
+</code></pre>
 <hr />
 <h2 id="tips">Tips</h2>
 <h3 id="objectmapper">ObjectMapper</h3>
@@ -872,6 +1058,37 @@ public class Derived extends Base
 <p>Constructing an ObjectMapper instance is a relatively expensive operation, so it's recommended to create one object and reuse it like below. </p>
 </blockquote>
 <p><code>private static final ObjectMapper jsonMapper = new ObjectMapper()</code></p>
+<ul>
+<li>
+<p>Log values as a JSON</p>
+<pre><code>log.info(
+    "Log info",
+    value("log_name", log_name),
+    value("log_type", log_type),
+    value("log_variables", jsonMapper.writeValueAsString(localVariable))
+);
+</code></pre>
+</li>
+<li>
+<p>Two ways to set PropertyNamingStrategy be SNAKE_CASE</p>
+<pre><code>spring:
+    jackson:
+        property-naming-strategy: SNAKE_CASE  
+==========================================================
+@Configuration
+public class JacksonConfiguration {
+
+    @Bean
+    public Jackson2ObjectMapperBuilder jackson2ObjectMapperBuilder() {
+        return new Jackson2ObjectMapperBuilder()
+                .propertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);
+        // insert other configurations
+    }
+
+}
+</code></pre>
+</li>
+</ul>
 <h3 id="if-else">if - else</h3>
 <pre><code>if(x==y) {
     return a;
@@ -907,6 +1124,10 @@ if (a &gt; 1) {
 <blockquote>
 <p><code>static final</code> and <code>final static</code> are the same. However <code>static final</code> is recommended by coding convention.</p>
 </blockquote>
+<h2 id="other">Other</h2>
+<h3 id="checked-unchecked-assignment">Checked / Unchecked assignment</h3>
+<p>Checked assignment: <code>Map&lt;String, Object&gt; factMap = new HashMap&lt;&gt;()</code><br />
+Unchecked assignment: <code>Map&lt;String, Object&gt; factMap = new HashMap()</code></p>
                 
               
               

@@ -418,15 +418,13 @@
                 
                 <h3 id="git-commands"><em>Git commands</em></h3>
 <ul>
-<li>When want to change the commit, use <code>amend</code> command.<br />
+<li>
+<p>When want to change the commit, use <code>amend</code> command.<br />
 <code>git status</code>  <br />
 <code>git add .</code> <br />
 <code>git commit --amend -m "Your comment"</code><br />
-<code>git push origin HEAD -f</code> </li>
-</ul>
-<!-- more -->
-
-<ul>
+<code>git push origin HEAD -f</code> </p>
+</li>
 <li>
 <p>When want to squach last N commits, use <strong>squash</strong> command.<br />
 <code>git rebase -i HEAD~N</code>  <br />
@@ -500,6 +498,15 @@ If you are on the branch you want to rename:
 <p>Remove the last commit<br />
 <code>git reset --hard HEAD^</code><br />
 <code>git push origin -f</code>  </p>
+</li>
+<li>
+<p>Output logs</p>
+<ul>
+<li>Output every log in one line<br />
+<code>git log --oneline</code></li>
+<li>Search by keywords<br />
+<code>git log --grep keywords</code></li>
+</ul>
 </li>
 </ul>
 <hr />
