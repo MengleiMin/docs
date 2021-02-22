@@ -53,13 +53,14 @@
 
 ---
 ## Sets / List
-- Implement `containsAny` for sets command.  
+- Implement `containsAny` for sets.  
      - `Sets.intersection(set1, set2).isEmpty()`   
      - `CollectionUtils.containsAny(someCollection1, someCollection2)`
      - `setA.stream().anyMatch(setB::contains)`
+- Implement `anyMatch` for stream.
+     - `a.stream().anyMatch(s -> b.trim().equalsIgnoreCase(s))`
 
-
-- To a set  
+- Converter to a set  
 
         Set<String> orderedItems = orderedItemsSet.stream()
             .map(str -> str.replaceAll("\\s",""))
@@ -173,7 +174,7 @@ ___
 `@AvroIgnore`
 
 ---
-## Functions
+## Methods
  - `Boolean.equals(Object obj)`
 >Returns true if and only if the argument **is not null** and is a Boolean object that represents the same boolean value as this object.
 
@@ -185,6 +186,11 @@ ___
 
 - `StringUtils.isEmpty()`
 >This method is used to check if a String object is null or **empty**. 
+
+- String `equals()` always return `boolean` value
+> This method compares this string to the specified object. The result is true if and only if the argument is not null and is a String object that represents the same sequence of characters as this object. Otherwise is false.  
+
+    `booleanValue = Str1.equals(Str2)`
 
 - `org.springframework.util.CollectionUtils.isEmpty(Object A)`    
 >This method is used to check if a object is null or **empty**.
@@ -244,7 +250,7 @@ It doesn't matter how many times we initialize a class; there will always be onl
     }
 
 ---
-## Tips
+## Tips / Usuage
 
 ### ObjectMapper
 > Constructing an ObjectMapper instance is a relatively expensive operation, so it's recommended to create one object and reuse it like below. 
@@ -278,7 +284,19 @@ It doesn't matter how many times we initialize a class; there will always be onl
 
         } 
 
-### if - else   
+### Consumer / Supplier / Predicate / Function
+
+- Predictions
+    
+        var a = getResponse(StringQueryResponse.class, isBookQueryResponse())
+            .map(response -> response.value);
+
+        public static Predicate<StringQueryResponse> isBookQueryResponse() {
+            return response -> response.queryName.equals(isBookQuery.QUERY_NAME);
+        }
+
+### Condition
+- if - else   
 ``` 
 if(x==y) {
     return a;
@@ -290,7 +308,7 @@ can be simpified as:
 `x == y ? a : b` 
 
 
-### if - else if - else
+- if - else if - else
   
 ```  
 If the conditions are not based on the same thing, for example:  
@@ -313,10 +331,28 @@ if (a > 1) {
 }
 ``` 
 
-### if-else VS switch 
-> For a **switch** statement, the **default** clause is good for error handling and testing (even it is not necessary). If it doesn't need the default clause, then **if - else** can be considered instead.
+- if-else VS switch 
+  
+> For a **switch** statement, the **default** clause is good for error handling and testing (even it is not necessary). If it doesn't need the default clause, then **if - else** can be considered instead.  
 
-### static final VS final static
+
+- try... catch... finally
+At a basic level `catch` and `finally` solve two related but different problems:  
+
+> `catch` is used to handle a problem that was reported by code you called.  
+`finally` is used to clean up data/resources that the current code created/modified, no matter if a problem/exception occurred or not
+
+> The `finally` block is used for code that must always run, whether an error condition (exception) occurred or not.  
+Care should be taken in the `finally` block to ensure that it does not itself throw an exception. For example, be doubly sure to check all variables for null, etc.
+
+    try {
+    // Do processing
+    return result;
+    } finally {
+    // Release resources
+    }
+
+- static final VS final static
 > `static final` and `final static` are the same. However `static final` is recommended by coding convention.
 
 
