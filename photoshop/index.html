@@ -14,7 +14,7 @@
     
     
       
-        <title>Git - Molly's notes</title>
+        <title>Photoshop - Molly's notes</title>
       
     
     
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#git-commands" class="md-skip">
+        <a href="#welcome-to-mollys-note" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +90,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Git
+              Photoshop
             
           </span>
         </div>
@@ -180,52 +180,11 @@
       
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Git
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../git/" class="md-nav__link">
       Git
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#git-commands" class="md-nav__link">
-    Git commands
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#git-short-command" class="md-nav__link">
-    Git short command
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -273,12 +232,14 @@
       
 
 
+  
+
 
   
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       Tools
@@ -323,11 +284,52 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../photoshop/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Photoshop
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Photoshop
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#welcome-to-mollys-note" class="md-nav__link">
+    Welcome to Molly's note
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    Commands
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -414,15 +416,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#git-commands" class="md-nav__link">
-    Git commands
+  <a href="#welcome-to-mollys-note" class="md-nav__link">
+    Welcome to Molly's note
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#git-short-command" class="md-nav__link">
-    Git short command
+  <a href="#commands" class="md-nav__link">
+    Commands
   </a>
   
 </li>
@@ -440,114 +442,18 @@
               
                 
                 
-                  <h1>Git</h1>
+                  <h1>Photoshop</h1>
                 
-                <h3 id="git-commands"><em>Git commands</em></h3>
+                <h2 id="welcome-to-mollys-note">Welcome to Molly's note</h2>
+<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
+<h2 id="commands">Commands</h2>
 <ul>
-<li>
-<p>When want to change the commit, use <code>amend</code> command.<br />
-<code>git status</code>  <br />
-<code>git add .</code> <br />
-<code>git commit --amend -m "Your comment"</code><br />
-<code>git push origin HEAD -f</code> </p>
-</li>
-<li>
-<p>When want to squach last N commits, use <strong>squash</strong> command.<br />
-<code>git rebase -i HEAD~N</code>  <br />
-Choose the commits that you want to squach, and put squash command at the beginning of the commits. For example, the last 4 commits below will be squashed into first commit <strong>01d1124</strong>.</p>
-<p><code>pick/reword   01d1124 commit 1.    
-fixme 6340aaa commit 2.
-fixme ebfd367 commit 3.
-fixme 30e0ccb commit 4.</code> </p>
-<p>Once this is done and saved, another editor pops up, you can also edit the commit message there if you want to. <br />
-Save and exit, use the following command to push the squached commit.<br />
-<code>git push origin HEAD -f</code> </p>
-</li>
-<li>
-<p>Jump back to the last commit using a <code>commit-id</code> and push it to the remote branch. <br />
-<code>git reset --hard f145f6f</code><br />
-<code>git push origin -f</code> </p>
-</li>
-<li>
-<p>Undo the last commit<br />
-<code>git reset --soft HEAD~1</code><br />
-If you don't want to keep these changes, simply use the <code>--hard</code>flag. Be sure to only do this when you're sure you don't need these changes anymore.<br />
-<code>git reset --hard HEAD~1</code></p>
-</li>
-<li>
-<p>Remove the merge just now<br />
-<code>git fetch origin</code><br />
-<code>git reset --hard origin</code></p>
-</li>
-<li>
-<p>git reverte<br />
-<code>git checkout master</code><br />
-<code>git pull --rebase origin master</code>
-<code>git checkout -b revert_pull_request_1</code>
-<code>git revert -m 1 merged-commit-id</code>
-<code>git push origin revert_pull_request_1</code></p>
-</li>
-<li>
-<p>Create branch <br />
-<code>git pull</code><br />
-<code>git checkout -branch branchName</code><br />
-<code>git push origin branchName</code>  </p>
-</li>
-<li>
-<p>Delete branch from local and remote <br />
-<code>git branch -delete branchName</code><br />
-<code>git push origin --delete branchName</code></p>
-</li>
-<li>
-<p>Resolve Conflicts<br />
-<strong>Step 1</strong>. Checkout the source branch and merge in the changes from the target branch.<br />
-<code>git merge --abort</code>  (If exist uncommited files) <br />
-<code>git checkout feature/branchName</code> <br />
-<code>git pull origin master</code><br />
-<strong>Step 2</strong>. After the merge conflicts are resolved, stage the changes accordingly, commit the changes and push.<br />
-<code>git commit</code><br />
-<code>git push origin HEAD</code>   </p>
-</li>
-<li>
-<p>Rename remote branch<br />
-<strong>Step 1a</strong>. Rename your local branch.
-If you are on the branch you want to rename:
-<code>git branch -m new-name</code><br />
-<strong>Step 1b</strong>. If you are on a different branch:
-<code>git branch -m old-name new-name</code>  <br />
-<strong>Step 2</strong>. Delete the old-name remote branch and push the new-name local branch.
-<code>git push origin :old-name new-name</code><br />
-<strong>Step 3</strong>. Reset the upstream branch for the new-name local branch.
-<code>git push origin -u new-name</code></p>
-</li>
-<li>
-<p>Remove the last commit<br />
-<code>git reset --hard HEAD^</code><br />
-<code>git push origin -f</code>  </p>
-</li>
-<li>
-<p>Output logs</p>
-<ul>
-<li>Output every log in one line<br />
-<code>git log --oneline</code></li>
-<li>Search by keywords<br />
-<code>git log --grep keywords</code></li>
+<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
+<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
+<li><code>mkdocs build</code> - Build the documentation site.</li>
+<li><code>mkdocs gh-deploy</code> - Deploy changes</li>
+<li><code>mkdocs -h</code> - Print help message and exit.</li>
 </ul>
-</li>
-</ul>
-<hr />
-<h3 id="git-short-command"><strong>Git short command</strong></h3>
-<ul>
-<li>
-<p>Show commit history <br />
-<code>git reflog</code></p>
-</li>
-<li>
-<p>Show graphical history viewer <br />
-<code>gitk</code></p>
-</li>
-</ul>
-<hr />
                 
               
               
@@ -566,7 +472,7 @@ If you are on the branch you want to rename:
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../markdown/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -575,19 +481,19 @@ If you are on the branch you want to rename:
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Markdown
               </div>
             </div>
           </a>
         
         
-          <a href="../spring-boot/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../english/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Spring Boot
+                English
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
