@@ -169,9 +169,16 @@ ___
 ---
 ## Annotations
 `@Data`  
-`@EqualsAndHashCode(callSuper = true)` // @EqualsAndHashCode is included in @Data, and the default value of callSuper is false.
+`@EqualsAndHashCode(callSuper = true)` 
+> @EqualsAndHashCode is included in @Data, and the default value of callSuper is false.
 
 `@AvroIgnore`
+
+`@EnableAutoConfiguration`
+> Enable auto-configuration of the Spring Application Context, attempting to guess and configure beans that you are likely to need.  
+> When using @SpringBootApplication, the auto-configuration of the context is automatically enabled and adding this annotation has therefore no additional effect.  
+> It is generally recommended that you place @EnableAutoConfiguration (if you're not using @SpringBootApplication) in a root package so that all sub-packages and classes can be searched.
+
 
 ---
 ## Methods
@@ -252,6 +259,15 @@ It doesn't matter how many times we initialize a class; there will always be onl
 ---
 ## Tips / Usuage
 
+
+### Mapper
+
+- TreeMap  
+  - By default, TreeMap sorts all its entries according to their natural ordering of `key`. For an integer, this would mean ascending order and for strings, alphabetical order.
+` TreeMap<String, String> map = new TreeMap<>()`
+  - If we're not satisfied with the natural ordering of TreeMap, we can also define our own rule for ordering by means of a comparator during construction of a tree map.  
+`TreeMap<Integer, String> map = new TreeMap<>(Comparator.reverseOrder())`
+
 ### ObjectMapper
 > Constructing an ObjectMapper instance is a relatively expensive operation, so it's recommended to create one object and reuse it like below. 
 
@@ -287,12 +303,77 @@ It doesn't matter how many times we initialize a class; there will always be onl
 ### Consumer / Supplier / Predicate / Function
 
 - Predictions
-    
+> A Predicate interface represents a boolean-valued-function of an argument. This is mainly used to filter data from a Java Stream. The filter method of a stream accepts a predicate to filter the data and return a new stream satisfying the predicate. A predicate has a test() method which accepts an argument and returns a boolean value.        
+
+        @Test
+        public void testPredicateAndComposition(){
+            List<String> names = Arrays.asList("John", "Smith", "Samueal", "Catley", "Sie");
+            Predicate<String> startPredicate = str -> str.startsWith("S");
+            Predicate<String> lengthPredicate = str -> str.length() >= 5;
+            names.stream().filter(startPredicate.and(lengthPredicate)).forEach(System.out::println);
+        }
+
+        ===================================================
+
         var a = getResponse(StringQueryResponse.class, isBookQueryResponse())
             .map(response -> response.value);
 
         public static Predicate<StringQueryResponse> isBookQueryResponse() {
             return response -> response.queryName.equals(isBookQuery.QUERY_NAME);
+        }
+
+- Consumer  
+> A Consumer is a functional interface that accepts a single input and returns no output. Consumer interface has two methods:
+
+        void accept(T t);  
+        default Consumer<T> andThen(Consumer<? super T> after);
+
+> In the following example, we demonstrate the usage of composing multiple consumer implementations to make a chain of consumers. In this specific example, we have created two consumers; one converts a list of items into upper case Strings and the other one prints the uppercased string.
+ 
+        @Test
+        public void whenNamesPresentUseBothConsumer(){
+            List<String> cities = Arrays.asList("Sydney", "Dhaka", "New York", "London");
+
+            Consumer<List<String>> upperCaseConsumer = list -> {
+                for(int i=0; i< list.size(); i++){
+                    list.set(i, list.get(i).toUpperCase());
+                }
+            };
+            Consumer<List<String>> printConsumer = list -> list.stream().forEach(System.out::println);
+
+            upperCaseConsumer.andThen(printConsumer).accept(cities);
+        }
+
+> Consumer interface has specific implementation types for integer, double and long types with IntConsumer, DoubleConsumer, and LongConsumer as shown below:  
+
+        IntConsumer void accept(int x);
+        DoubleConsumer void accept(double x);
+        LongConsumer void accept(long x);
+
+- Supplier
+> A Supplier is a simple interface which indicates that this implementation is a supplier of results. The supplier has only one method get() and does not have any other default and static methods.
+
+        BookCategory category = getDefaultOnException(
+            () -> BookCategory.valueOf(favoriteBook.category().name()), BookCategory.OTHER);
+
+        private static <R> R getDefaultOnException(final Supplier<R> supplier, final R defaultValue) {
+            try {
+                return supplier.get();
+            } catch (final IllegalArgumentException | NullPointerException e) {
+                return defaultValue;
+            }
+        }
+
+
+- Function
+> A Function interface is more of a generic one that takes one argument and produces a result. This has a Single Abstract Method (SAM) apply which accepts an argument of a type T and produces a result of type R. One of the common use cases of this interface is Stream.map method. This is shown as below:  
+ 
+        @Test
+        public void testFunctions(){
+            List<String> names = Arrays.asList("Smith", "Gourav", "Heather", "John", "Catania");
+            Function<String, Integer> nameMappingFunction = String::length;
+            List<Integer> nameLength = names.stream().map(nameMappingFunction).collect(Collectors.toList());
+            System.out.println(nameLength);
         }
 
 ### Condition

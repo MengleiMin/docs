@@ -32,5 +32,92 @@
  3. Gotcha
 
 -----
+## Phrase
+- 多么通情达理=how very convenient 
+- 打蛋器=eggbeater 
+- 现在开始吃吧 = Very to eat
+- what a bargain: 太划算了
+- Out of budget/price range :超出预算
+
+- be held up: 被什么阻碍/拖着，I am held up at/by work. means - I cannot get off of work, because I am working on something.
+- Be held up by traffic.
+- crazy expensive.
+- get each other hard time：刁难对方
+- don’t brag about it: 别吹牛了
+- grass is always greener in the other side： 邻家芳草绿
+- day after day： 日复一日
+- Anything on special today? = Anything on sale today?
+
+- Could you put the strawberries in a separate bag?你能把草莓单独放在一个袋子里吗？
+
+- Believes can be deep seated= 相信可以深入人心
+- Digging into complex problems: 深入研究复杂问题
+- travel oversea：去国外旅游
+- I could really use or I could use something = I really want/want 
+- Well listen, I'm going to go mingle a bit=用于（比如party）结束对话，我将去和别人社交一下，you want to end the conversation - so that you can talk to other people as well. 
+policies are always gonna have certain restrictions.
+
+- sing by the fire：围着篝火唱歌
+- 想要东西的撒娇：stop being so whiny = stop whining 别撒娇了
+- 情侣之间的口吻撒娇：the lovely-dovey stuff
+
+- it's gross：太恶心了
+- Issue resolution meeting: 问题解决会议
+- in a sneaky and secretive way：鬼鬼祟祟，偷偷摸摸
+- i am sold: 我被说服了
+- I am in a pickle: 我很矛盾，我很纠结
+
+-----
 ## Word
+- Stink: smells bad
+- Honeypot: 极具吸引力的事物，蜜罐
+- unwritten rule: 不成文的规则
+- Bun: 小圆面包
+- embryo：受精卵
+- Overwhelming majority: 大部分大部分，比如90%以上
+- Paraben: 防腐剂
+- Slap:甩巴掌
+- Whooping cough ：
+- flu shot:
+- Chromosome abnormality:染色体异常
+- after-treatment controllers: 后处理控制器
+- countershaft：对转轴
+- Hazards: 危害
+- roast：善意的嘲弄某人
+- good natured jokes：善意的玩笑
+- Public Display of Affection (PDA)：秀恩爱
+- love birds：热烈中的情侣
+- Cradle-snatcher：姐弟恋
+- best man/groomsmen：伴郎
+- bridesmaids：伴娘
+- matchmaker：媒婆
+- go on honeymoon： 去度蜜月
+- Intercom: 对讲机
+- homecoming：归国，同学会
+- portfolio：作品
+- thriller：惊悚片
+- opaque不透明的
+- chaos：注音读音
+- plastic wrap，food wrap，cling film：保鲜膜
+- dismay：使灰心，使沮丧
+- executive presence：高管形象，领导者气质
+- diarrhea: 腹泻，痢疾
+- self contradictory： 自相矛盾的
+- an oxymoron = catch 22矛盾，自相矛盾
+- son bias: 重男轻女
+- Douchebag: 人渣，变态
+- low key: 低调
+- down to earth：脚踏实地
+- frankly： to be honest 
+- Sideline: 副业
+- Music recital: 音乐演奏会
+- dial: 转盘，刻度盘
+- shock hazard：电击危险
+- hedgehog：刺猬
+- Buttler：男管家
+- saliva：唾液
+- Persian：波斯的
+- lame excuse：无说服力的借口
+- gravy boat：调味汁瓶
+- renovations：装修
 

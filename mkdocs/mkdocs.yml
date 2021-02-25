@@ -4,9 +4,11 @@ nav:
     - Git: git.md
     - Spring Boot: spring-boot.md
     - Java: java.md
+    - Kafka: kafka.md
     - Tools:
         - Intellij: intellij.md
         - Markdown: markdown.md
+        - Photoshop: photoshop.md
     - Other:
         - English: english.md
         - Swedish: swedish.md
