@@ -322,6 +322,7 @@ It doesn't matter how many times we initialize a class; there will always be onl
             return response -> response.queryName.equals(isBookQuery.QUERY_NAME);
         }
 
+<<<<<<< HEAD
 - Consumer  
 > A Consumer is a functional interface that accepts a single input and returns no output. Consumer interface has two methods:
 
@@ -376,6 +377,55 @@ It doesn't matter how many times we initialize a class; there will always be onl
             System.out.println(nameLength);
         }
 
+||||||| merged common ancestors
+=======
+- Consumer  
+> A Consumer is a functional interface that accepts a single input and returns no output. Consumer interface has two methods:
+
+        void accept(T t);  
+        default Consumer<T> andThen(Consumer<? super T> after);
+
+> In the following example, we demonstrate the usage of composing multiple consumer implementations to make a chain of consumers. In this specific example, we have created two consumers; one converts a list of items into upper case Strings and the other one prints the uppercased string.
+ 
+        @Test
+        public void whenNamesPresentUseBothConsumer(){
+            List<String> cities = Arrays.asList("Sydney", "Dhaka", "New York", "London");
+
+            Consumer<List<String>> upperCaseConsumer = list -> {
+                for(int i=0; i< list.size(); i++){
+                    list.set(i, list.get(i).toUpperCase());
+                }
+            };
+            Consumer<List<String>> printConsumer = list -> list.stream().forEach(System.out::println);
+
+            upperCaseConsumer.andThen(printConsumer).accept(cities);
+        }
+
+> Consumer interface has specific implementation types for integer, double and long types with IntConsumer, DoubleConsumer, and LongConsumer as shown below:  
+
+        IntConsumer void accept(int x);
+        DoubleConsumer void accept(double x);
+        LongConsumer void accept(long x);
+
+- Supplier
+> A Supplier is a simple interface which indicates that this implementation is a supplier of results. The supplier has only one method get() and does not have any other default and static methods.
+
+        BookCategory category = getDefaultOnException(
+            () -> BookCategory.valueOf(favoriteBook.category().name()), BookCategory.OTHER);
+
+        private static <R> R getDefaultOnException(final Supplier<R> supplier, final R defaultValue) {
+            try {
+                return supplier.get();
+            } catch (final IllegalArgumentException | NullPointerException e) {
+                return defaultValue;
+            }
+        }
+
+
+- Function
+
+
+>>>>>>> origin
 ### Condition
 - if - else   
 ``` 
