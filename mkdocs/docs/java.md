@@ -322,7 +322,6 @@ It doesn't matter how many times we initialize a class; there will always be onl
             return response -> response.queryName.equals(isBookQuery.QUERY_NAME);
         }
 
-<<<<<<< HEAD
 - Consumer  
 > A Consumer is a functional interface that accepts a single input and returns no output. Consumer interface has two methods:
 
@@ -377,8 +376,6 @@ It doesn't matter how many times we initialize a class; there will always be onl
             System.out.println(nameLength);
         }
 
-||||||| merged common ancestors
-=======
 - Consumer  
 > A Consumer is a functional interface that accepts a single input and returns no output. Consumer interface has two methods:
 
@@ -425,7 +422,6 @@ It doesn't matter how many times we initialize a class; there will always be onl
 - Function
 
 
->>>>>>> origin
 ### Condition
 - if - else   
 ``` 

@@ -124,3 +124,8 @@ policies are always gonna have certain restrictions.
 -----
 ## Phase
 as it stands 按照实际情况来说
+
+回应吹牛的方式:
+> 比较拱火的方式: Gimme a break: 省省吧
+> 更温和的方式(带讽刺): Oh you did, did you? / Oh you are, are you? 哦, 是吗?
+> 更温和，中性的方式: Huh: 暗示你并不怎么买账，但不会引起正面冲突, Roll one's eyes: (心里默默地）翻白眼
