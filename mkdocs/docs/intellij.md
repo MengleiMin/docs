@@ -1,36 +1,43 @@
 ### *Intellij shoutcuts*
-* **Choose a block selection**   
+* *Choose a block selection*  
 `shift+cmd+8`
- 
- <!-- more -->
+
     
-* **Create Test**  
+* *Create Test*  
 `cmd+shift+T`
 
-* **Find in path**  
+* *Find in path* 
 `cmd+shift+f`
 
-* **Find action dialog**  
+* *Find action dialog*  
 `cmd+shift+A`  
 Actions:   
 Extract method  
 Hierarchy actions
 
-* **Extract method**
-`alt+shift+m` 
+* *Extract method*
+`⌥+⌘+m` 
 
-* **Import class**
+* *Import class*
 `alt+enter` 
 
-* **New scratch file**  
+* *New scratch file*  
 `cmd+shift+N`  
 
-* **Format JSON in a scratch file**  
+* *Format JSON in a scratch file* 
 `cmd+shift+option+L`  
 
-* **Generate**  
+* *Generate*  
 `⌘N`
 
+* Choose Code | Move Line Up/Down
+* `⌥+⇧+↑` or `⌥+⇧+↓` 
+  
+* Comment line or block
+* `⌘+/`  or `⌥+⌘+/`  
+
+* Show Hierarchy
+* `⌃+H`  
 ### *Sublime shoutcuts*
-* **Json in sublime**  
+* *Json in sublime*  
 `cmd+control+j`  
