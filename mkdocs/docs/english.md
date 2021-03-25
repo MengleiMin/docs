@@ -30,6 +30,8 @@
  1. Super catch
  2. The detail that makes all the difference 
  3. Gotcha
+ 4. I just managed to confuse myself, 然后提出一个问题
+ 5. Thanks for the clarification! @xx & @yy. Thanks for helping out @zz  :raised_hands:
 
 -----
 ## Phrase
@@ -123,9 +125,23 @@ policies are always gonna have certain restrictions.
 
 -----
 ## Phase
-as it stands 按照实际情况来说
+- as it stands 按照实际情况来说
 
-回应吹牛的方式:
+- 回应吹牛的方式:
 > 比较拱火的方式: Gimme a break: 省省吧
 > 更温和的方式(带讽刺): Oh you did, did you? / Oh you are, are you? 哦, 是吗?
 > 更温和，中性的方式: Huh: 暗示你并不怎么买账，但不会引起正面冲突, Roll one's eyes: (心里默默地）翻白眼
+
+- Don’t judge a book by its cover: 不要以貌取人
+- Better safe than sorry: 小心驶得万年船
+- Haste makes waste: 欲速则不达
+- Love me, love my dog: 爱屋及乌
+- When in Rome, do as the Romans do: 入乡随俗
+- Go all in on：全力以赴
+- A leopard cannot change its spots: 江山易改，本性难移。
+- Birds of a feather flock together: 物以类聚
+- A friend in need is a friend indeed: 患难见真情。
+- Beauty is in the eye of the beholder: 情人眼里出西施, 也可用于其他东西，表明品味不一样。0
+- Easier said than done: 说起来容易做起来难。
+- Time and tide wait for no man: 岁月不待人。
+- Necessity is the mother of invention: 有需求才有创造
